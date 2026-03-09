@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Painel Sensibilidade</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>PAINEL SENSIBILIDADE</h2>
+
+<div class="option">
+<span>Aimbot legit</span>
+<label class="switch">
+<input type="checkbox" onchange="toggleOption('aimbot',this.checked)">
+<span class="slider"></span>
+</label>
+</div>
+
+<div class="option">
+<span>Reduzir tremedeira</span>
+<label class="switch">
+<input type="checkbox" onchange="toggleOption('smooth',this.checked)">
+<span class="slider"></span>
+</label>
+</div>
+
+<div class="option">
+<span>Boost precisão</span>
+<label class="switch">
+<input type="checkbox" onchange="toggleOption('boost',this.checked)">
+<span class="slider"></span>
+</label>
+</div>
+
+<div class="option">
+<span>Modo desempenho</span>
+<label class="switch">
+<input type="checkbox" onchange="toggleOption('performance',this.checked)">
+<span class="slider"></span>
+</label>
+</div>
+
+<button onclick="startEngine()">INICIAR TESTE</button>
+
+</div>
+
+<script src="engine.js"></script>
+<script src="enginebundle.js"></script>
+
+<script>
+
+function toggleOption(name,value){
+Engine.setOption(name,value)
+}
+
+function startEngine(){
+Engine.start()
+}
+
+if("serviceWorker" in navigator){
+navigator.serviceWorker.register("sw.js")
+}
+
+</script>
+
+</body>
+</html>
